@@ -17,10 +17,8 @@ import {
 	ChevronDown,
 	Menu,
 	X,
-	Search,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Input } from '@/components/ui/input';
 
 const foundationItems = [
 	{ name: 'Typography', href: '/foundation/typography', icon: Type },
@@ -108,23 +106,12 @@ export function Sidebar() {
 				</Link>
 				<button
 					type="button"
+					aria-label="Close navigation"
 					onClick={() => setIsMobileOpen(false)}
 					className="md:hidden"
 				>
 					<X className="h-5 w-5" />
 				</button>
-			</div>
-
-			<div className="px-4 py-4">
-				<div className="relative">
-					<Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-					<Input
-						type="search"
-						placeholder="Search..."
-						className="pl-9"
-						disabled
-					/>
-				</div>
 			</div>
 
 			<nav className="flex-1 space-y-4 px-4 pb-4 overflow-y-auto">
@@ -138,6 +125,7 @@ export function Sidebar() {
 		<>
 			<button
 				type="button"
+				aria-label="Open navigation"
 				onClick={() => setIsMobileOpen(true)}
 				className="fixed top-4 left-4 z-40 md:hidden rounded-md bg-background border p-2 shadow-md"
 			>
@@ -160,9 +148,8 @@ export function Sidebar() {
 				{sidebarContent}
 			</aside>
 
-			<aside className="hidden md:block w-64 border-r bg-background h-screen sticky top-0">
-				{sidebarContent}
-			</aside>
+			{/* Spacer to offset main content on desktop (sidebar is fixed) */}
+			<div className="hidden md:block w-64 flex-shrink-0" />
 		</>
 	);
 }
