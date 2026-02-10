@@ -46,10 +46,10 @@
 	/* Shapes */
 	--radius: 0.625rem;
 
-	/* Typography — references next/font CSS variables from layout.tsx */
-	--font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-	--font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
+	/* Typography — use font names directly (next/font loads @font-face globally) */
+	--font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
 	/* Brand Metadata (used by overview page) */
 	--brand-name: 'Design System';

@@ -1,72 +1,66 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-	Type,
-	Palette,
-	Ruler,
-	Grid3X3,
-	RectangleHorizontal,
-	TextCursorInput,
-	CreditCard,
-	Table,
-	Tag,
-	AlertCircle,
-	ChevronDown,
-	Menu,
-	X,
-} from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const foundationItems = [
-	{ name: 'Typography', href: '/foundation/typography', icon: Type },
-	{ name: 'Colors', href: '/foundation/colors', icon: Palette },
-	{ name: 'Spacing', href: '/foundation/spacing', icon: Ruler },
-	{ name: 'Icons', href: '/foundation/icons', icon: Grid3X3 },
-];
+import {
+	ChevronDown,
+	ChevronRight,
+	Palette,
+	Type,
+	Component,
+	LayoutDashboard,
+	LogIn,
+	Settings,
+	FileText,
+} from 'lucide-react';
 
 const componentItems = [
-	{
-		name: 'Buttons',
-		href: '/components/buttons',
-		icon: RectangleHorizontal,
-	},
-	{ name: 'Inputs', href: '/components/inputs', icon: TextCursorInput },
-	{ name: 'Cards', href: '/components/cards', icon: CreditCard },
-	{ name: 'Tables', href: '/components/tables', icon: Table },
-	{ name: 'Badges', href: '/components/badges', icon: Tag },
-	{ name: 'Alerts', href: '/components/alerts', icon: AlertCircle },
+	{ name: 'Button', href: '/components/button', icon: Component },
+	{ name: 'Card', href: '/components/card', icon: Component },
+	{ name: 'Input', href: '/components/input', icon: Component },
+	{ name: 'Select', href: '/components/select', icon: Component },
+	{ name: 'Checkbox', href: '/components/checkbox', icon: Component },
+	{ name: 'Radio', href: '/components/radio', icon: Component },
+	{ name: 'Switch', href: '/components/switch', icon: Component },
+	{ name: 'Badge', href: '/components/badge', icon: Component },
+	{ name: 'Alert', href: '/components/alert', icon: Component },
+	{ name: 'Dialog', href: '/components/dialog', icon: Component },
 ];
 
-interface NavSectionProps {
-	title: string;
-	items: typeof foundationItems;
-	defaultExpanded?: boolean;
-}
+const pageItems = [
+	{ name: 'Dashboard', href: '/pages/dashboard', icon: LayoutDashboard },
+	{ name: 'Login', href: '/pages/login', icon: LogIn },
+	{ name: 'Settings', href: '/pages/settings', icon: Settings },
+	{ name: 'Detail View', href: '/pages/detail', icon: FileText },
+];
 
-function NavSection({ title, items, defaultExpanded = true }: NavSectionProps) {
+function NavSection({
+	title,
+	items,
+}: {
+	title: string;
+	items: { name: string; href: string; icon: any }[];
+}) {
 	const pathname = usePathname();
-	const [isExpanded, setIsExpanded] = React.useState(defaultExpanded);
+	const [isOpen, setIsOpen] = useState(true);
 
 	return (
-		<div className="space-y-1">
+		<div className='mb-6'>
 			<button
-				type="button"
-				onClick={() => setIsExpanded(!isExpanded)}
-				className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+				onClick={() => setIsOpen(!isOpen)}
+				className='flex items-center w-full px-3 py-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors'
 			>
-				<span>{title}</span>
-				<ChevronDown
-					className={cn(
-						'h-4 w-4 transition-transform',
-						isExpanded ? 'transform rotate-0' : 'transform -rotate-90',
-					)}
-				/>
+				{isOpen ? (
+					<ChevronDown className='h-4 w-4 mr-2' />
+				) : (
+					<ChevronRight className='h-4 w-4 mr-2' />
+				)}
+				{title}
 			</button>
-			{isExpanded && (
-				<div className="space-y-0.5 pl-3">
+			{isOpen && (
+				<div className='mt-1 space-y-1'>
 					{items.map((item) => {
 						const Icon = item.icon;
 						const isActive = pathname === item.href;
@@ -75,14 +69,14 @@ function NavSection({ title, items, defaultExpanded = true }: NavSectionProps) {
 								key={item.href}
 								href={item.href}
 								className={cn(
-									'flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors',
+									'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
 									isActive
-										? 'bg-accent text-accent-foreground font-medium'
-										: 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+										? 'bg-primary/10 text-primary font-medium'
+										: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
 								)}
 							>
-								<Icon className="h-4 w-4 flex-shrink-0" />
-								<span>{item.name}</span>
+								<Icon className='h-4 w-4 mr-3' />
+								{item.name}
 							</Link>
 						);
 					})}
@@ -93,63 +87,44 @@ function NavSection({ title, items, defaultExpanded = true }: NavSectionProps) {
 }
 
 export function Sidebar() {
-	const [isMobileOpen, setIsMobileOpen] = React.useState(false);
-
-	const sidebarContent = (
-		<div className="flex h-full flex-col">
-			<div className="flex items-center justify-between border-b p-6">
-				<Link href="/" className="flex items-center gap-2">
-					<div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
-						DS
-					</div>
-					<span className="text-lg font-semibold">Design System</span>
-				</Link>
-				<button
-					type="button"
-					aria-label="Close navigation"
-					onClick={() => setIsMobileOpen(false)}
-					className="md:hidden"
-				>
-					<X className="h-5 w-5" />
-				</button>
-			</div>
-
-			<nav className="flex-1 space-y-4 px-4 pb-4 overflow-y-auto">
-				<NavSection title="Foundation" items={foundationItems} />
-				<NavSection title="Components" items={componentItems} />
-			</nav>
-		</div>
-	);
+	const pathname = usePathname();
 
 	return (
-		<>
-			<button
-				type="button"
-				aria-label="Open navigation"
-				onClick={() => setIsMobileOpen(true)}
-				className="fixed top-4 left-4 z-40 md:hidden rounded-md bg-background border p-2 shadow-md"
-			>
-				<Menu className="h-5 w-5" />
-			</button>
+		<aside className='w-64 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+			<div className='p-6'>
+				<h2 className='text-lg font-semibold mb-6'>Design System</h2>
+				<nav className='space-y-1'>
+					<Link
+						href='/'
+						className={cn(
+							'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
+							pathname === '/'
+								? 'bg-primary/10 text-primary font-medium'
+								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
+						)}
+					>
+						<Palette className='h-4 w-4 mr-3' />
+						Colors
+					</Link>
+					<Link
+						href='/typography'
+						className={cn(
+							'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
+							pathname === '/typography'
+								? 'bg-primary/10 text-primary font-medium'
+								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
+						)}
+					>
+						<Type className='h-4 w-4 mr-3' />
+						Typography
+					</Link>
+				</nav>
 
-			{isMobileOpen && (
-				<div
-					className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
-					onClick={() => setIsMobileOpen(false)}
-				/>
-			)}
-
-			<aside
-				className={cn(
-					'fixed left-0 top-0 z-50 h-full w-64 border-r bg-background transition-transform duration-300 md:translate-x-0',
-					isMobileOpen ? 'translate-x-0' : '-translate-x-full',
-				)}
-			>
-				{sidebarContent}
-			</aside>
-
-			{/* Spacer to offset main content on desktop (sidebar is fixed) */}
-			<div className="hidden md:block w-64 flex-shrink-0" />
-		</>
+				<div className='mt-8'>
+					<NavSection title='Components' items={componentItems} />
+					<NavSection title='Pages' items={pageItems} />
+				</div>
+			</div>
+		</aside>
 	);
 }

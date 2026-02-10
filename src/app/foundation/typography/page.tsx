@@ -12,6 +12,28 @@ export default function TypographyPage() {
 				badge='Foundation'
 			/>
 
+			<Section id='font-families' title='Font Families'>
+				<ComponentPreview>
+					<div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+						<div className='space-y-3'>
+							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Heading</p>
+							<p className='text-4xl font-bold'>Inter</p>
+							<p className='text-sm text-muted-foreground'>Google Fonts</p>
+						</div>
+						<div className='space-y-3'>
+							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Body</p>
+							<p className='text-4xl'>Inter</p>
+							<p className='text-sm text-muted-foreground'>Google Fonts</p>
+						</div>
+						<div className='space-y-3'>
+							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Code</p>
+							<p className='text-4xl font-mono'>JetBrains Mono</p>
+							<p className='text-sm text-muted-foreground'>Google Fonts</p>
+						</div>
+					</div>
+				</ComponentPreview>
+			</Section>
+
 			<Section id='heading-elements' title='Heading Elements'>
 				<ComponentPreview>
 					<div className='space-y-6'>

@@ -1,0 +1,23 @@
+import { PageHeader } from '@/components/layout/page-header';
+import { Section } from '@/components/docs/section';
+
+export default function SettingsPage() {
+	return (
+		<div className='container mx-auto max-w-5xl py-8'>
+			<PageHeader
+				title='Settings'
+				description='Application settings and configuration. Template page for user preferences.'
+				badge='Pages'
+			/>
+
+			<Section id='variants' title='Variants'>
+				<div className='rounded-lg border border-dashed bg-muted/20 p-12 text-center space-y-2'>
+					<p className='text-lg font-medium text-muted-foreground'>No variants generated yet</p>
+					<p className='text-sm text-muted-foreground'>
+						Use v0, Gemini, or Claude Code to generate settings page variants.
+					</p>
+				</div>
+			</Section>
+		</div>
+	);
+}
