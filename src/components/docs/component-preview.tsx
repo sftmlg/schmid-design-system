@@ -13,7 +13,7 @@ export function ComponentPreview({
 	return (
 		<div
 			className={cn(
-				'flex items-center justify-center rounded-lg border bg-muted/40 p-10 min-h-[200px]',
+				'rounded-lg border bg-muted/40 p-8',
 				className,
 			)}
 		>
