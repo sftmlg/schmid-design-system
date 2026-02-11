@@ -18,12 +18,12 @@ export default function TypographyPage() {
 						<div className='space-y-3'>
 							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Heading</p>
 							<p className='text-4xl font-bold'>Inter</p>
-							<p className='text-sm text-muted-foreground'>Google Fonts</p>
+							<p className='text-sm text-muted-foreground'>Default · Configurable via --font-heading</p>
 						</div>
 						<div className='space-y-3'>
 							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Body</p>
 							<p className='text-4xl'>Inter</p>
-							<p className='text-sm text-muted-foreground'>Google Fonts</p>
+							<p className='text-sm text-muted-foreground'>Default · Configurable via --font-body</p>
 						</div>
 						<div className='space-y-3'>
 							<p className='text-sm font-medium text-muted-foreground uppercase tracking-wider'>Code</p>
@@ -206,12 +206,12 @@ export default function TypographyPage() {
 
 				<CodeBlock
 					title='Usage'
-					code={`// Headings
+					code={`// Headings (use --font-heading from brand.css)
 <h1 className="text-5xl font-bold tracking-tight">Display Large</h1>
 <h2 className="text-4xl font-bold tracking-tight">Display</h2>
 <h3 className="text-3xl font-semibold tracking-tight">Heading 1</h3>
 
-// Body text
+// Body text (uses --font-body from brand.css)
 <p className="text-base">Standard paragraph text</p>
 <p className="text-sm">Small supporting text</p>
 
