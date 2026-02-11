@@ -38,7 +38,7 @@ export default function TypographyPage() {
 				<ComponentPreview>
 					<div className='space-y-6'>
 						<div className='space-y-1'>
-							<h1 className='text-5xl font-bold tracking-tight'>
+							<h1 className='text-5xl tracking-tight'>
 								The quick brown fox
 							</h1>
 							<p className='text-sm text-muted-foreground'>
@@ -46,7 +46,7 @@ export default function TypographyPage() {
 							</p>
 						</div>
 						<div className='space-y-1'>
-							<h2 className='text-4xl font-bold tracking-tight'>
+							<h2 className='text-4xl tracking-tight'>
 								The quick brown fox
 							</h2>
 							<p className='text-sm text-muted-foreground'>
@@ -54,7 +54,7 @@ export default function TypographyPage() {
 							</p>
 						</div>
 						<div className='space-y-1'>
-							<h3 className='text-3xl font-semibold tracking-tight'>
+							<h3 className='text-3xl tracking-tight'>
 								The quick brown fox
 							</h3>
 							<p className='text-sm text-muted-foreground'>
@@ -62,7 +62,7 @@ export default function TypographyPage() {
 							</p>
 						</div>
 						<div className='space-y-1'>
-							<h4 className='text-2xl font-semibold tracking-tight'>
+							<h4 className='text-2xl tracking-tight'>
 								The quick brown fox
 							</h4>
 							<p className='text-sm text-muted-foreground'>
@@ -70,7 +70,7 @@ export default function TypographyPage() {
 							</p>
 						</div>
 						<div className='space-y-1'>
-							<h5 className='text-xl font-semibold tracking-tight'>
+							<h5 className='text-xl tracking-tight'>
 								The quick brown fox
 							</h5>
 							<p className='text-sm text-muted-foreground'>
@@ -78,7 +78,7 @@ export default function TypographyPage() {
 							</p>
 						</div>
 						<div className='space-y-1'>
-							<h6 className='text-lg font-semibold tracking-tight'>
+							<h6 className='text-lg tracking-tight'>
 								The quick brown fox
 							</h6>
 							<p className='text-sm text-muted-foreground'>
@@ -207,9 +207,9 @@ export default function TypographyPage() {
 				<CodeBlock
 					title='Usage'
 					code={`// Headings (use --font-heading from brand.css)
-<h1 className="text-5xl font-bold tracking-tight">Display Large</h1>
-<h2 className="text-4xl font-bold tracking-tight">Display</h2>
-<h3 className="text-3xl font-semibold tracking-tight">Heading 1</h3>
+<h1 className="text-5xl tracking-tight">Display Large</h1>
+<h2 className="text-4xl tracking-tight">Display</h2>
+<h3 className="text-3xl tracking-tight">Heading 1</h3>
 
 // Body text (uses --font-body from brand.css)
 <p className="text-base">Standard paragraph text</p>

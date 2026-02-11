@@ -18,7 +18,7 @@ Living reference catalog showing all base UI components styled with a brand's de
 | Chrome | `--border`, `--input`, `--ring` | oklch() |
 | Sidebar | `--sidebar`, `--sidebar-foreground` | oklch() |
 | Shapes | `--radius` | rem |
-| Typography | `--font-heading`, `--font-body`, `--font-mono` | font stack via var() |
+| Typography | `--font-heading`, `--font-heading-weight`, `--font-body`, `--font-mono` | font stack, weight, via var() |
 | Metadata | `--brand-name`, `--brand-description` | string |
 
 ## How Theming Works
@@ -45,13 +45,31 @@ Every brand fork MUST separate heading and body fonts in `brand.css`:
 --font-body: var(--font-BODY), ui-sans-serif, system-ui, sans-serif;
 ```
 
-And `globals.css` MUST apply heading font to all heading elements:
+And `globals.css` MUST apply heading font AND weight to all heading elements:
 
 ```css
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
 }
 ```
+
+## Heading Weight Rule (CRITICAL)
+
+**NEVER add `font-bold` or `font-semibold` to heading elements (h1-h6) in components or pages.**
+
+Heading font weight is controlled centrally via `--font-heading-weight` in `brand.css`. This token is applied to all headings via the base CSS layer in `globals.css`. Adding Tailwind weight utilities to headings overrides this token, breaking brand compliance.
+
+| Element | Weight Source | Tailwind Override |
+|---------|-------------|------------------|
+| h1-h6 | `var(--font-heading-weight)` via globals.css | FORBIDDEN |
+| CardTitle (div) | Own `font-semibold` class | OK (not a heading) |
+| Badge (div) | Own `font-semibold` class | OK (not a heading) |
+| p, span, td | None (inherits normal) | OK (`font-medium`, `font-bold` for emphasis) |
+
+### Why This Matters
+
+Brand CI documents specify heading weight (e.g., "Continuum Light" = 300, "Inter Bold" = 700). If components add `font-bold`, forks must hunt through every component to change it. With the token, forks change `--font-heading-weight: 300;` in ONE place.
 
 ### When CI Specifies a Commercial Font
 
@@ -147,6 +165,38 @@ Before committing component changes, grep for hardcoded colors:
 grep -rn 'green-\|yellow-\|blue-\|red-\|purple-\|orange-' src/components/ui/
 ```
 If any matches → replace with semantic tokens before committing.
+
+## Color Page Hierarchy Architecture (CRITICAL)
+
+The foundation/colors page MUST follow a layered hierarchy to prevent duplication. Each color value appears exactly ONCE.
+
+### Base Template Structure (4 layers)
+
+```
+Layer 1: Brand Colors    — primary, secondary, accent (defined ONCE, with foreground pairs)
+Layer 2: Surfaces        — background/foreground pairs for UI layers
+Layer 3: Semantic Colors — destructive, success, warning (independent of brand)
+Layer 4: Chrome          — border, input, ring
+```
+
+### Fork Structure (6 layers — when client has CI palette)
+
+```
+Layer 0: CI Palette      — raw brand colors from identity guide (shown ONCE with hex + oklch)
+Layer 1: Token Mapping   — visual: CI color → arrow → derived UI tokens
+Layer 2: Surfaces        — background/foreground pairs
+Layer 3: Semantic Colors — independent
+Layer 4: Chrome          — border, input, ring
+Layer 5: Code Reference  — full brand.css
+```
+
+### Anti-Pattern (causes duplication)
+
+Showing all CSS variables as a flat list grouped by type (brand, ui, semantic, chrome). When tokens share values (e.g., `--primary = --dark-blue`, `--foreground = --dark-blue`), the same oklch value appears 3-4 times.
+
+### Correct Pattern
+
+Show source colors ONCE, then show derivation. The mapping section communicates "this CI color becomes these tokens" without repeating values.
 
 ## Brand Colors vs Semantic Colors (CRITICAL)
 

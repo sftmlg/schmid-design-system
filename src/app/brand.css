@@ -48,6 +48,7 @@
 
 	/* Typography — use font names directly (next/font loads @font-face globally) */
 	--font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-heading-weight: 700;
 	--font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 

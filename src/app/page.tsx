@@ -90,7 +90,7 @@ export default function HomePage() {
 	return (
 		<div className="container max-w-6xl py-10 space-y-10">
 			<div className="space-y-4">
-				<h1 className="text-4xl font-bold tracking-tight">Design System</h1>
+				<h1 className="text-4xl tracking-tight">Design System</h1>
 				<p className="text-xl text-muted-foreground max-w-3xl">
 					A comprehensive design system built with Next.js, Tailwind CSS, and
 					modern web standards. Explore our foundation elements and reusable
@@ -136,7 +136,7 @@ export default function HomePage() {
 
 			<div className="space-y-6">
 				<div className="flex items-center gap-3">
-					<h2 className="text-2xl font-bold tracking-tight">Foundation</h2>
+					<h2 className="text-2xl tracking-tight">Foundation</h2>
 					<Badge variant="secondary">4 Categories</Badge>
 				</div>
 				<div className="grid gap-4 md:grid-cols-2">
@@ -163,7 +163,7 @@ export default function HomePage() {
 
 			<div className="space-y-6">
 				<div className="flex items-center gap-3">
-					<h2 className="text-2xl font-bold tracking-tight">Components</h2>
+					<h2 className="text-2xl tracking-tight">Components</h2>
 					<Badge variant="secondary">6 Components</Badge>
 				</div>
 				<div className="grid gap-4 md:grid-cols-2">

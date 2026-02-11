@@ -52,8 +52,12 @@
 		background: var(--background);
 		color: var(--foreground);
 	}
+	/* Heading font: family + weight controlled by brand tokens.
+	   NEVER add font-bold/font-semibold to heading elements in components —
+	   weight is centralized here so brand forks change it in ONE place (brand.css). */
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-heading);
+		font-weight: var(--font-heading-weight);
 	}
 	button, [role="button"], a, select, summary {
 		cursor: pointer;

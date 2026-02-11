@@ -91,7 +91,7 @@ export default function TabsPage() {
 						</TabsList>
 						<TabsContent value='overview'>
 							<Card className='p-6'>
-								<h3 className='font-semibold mb-2'>Dashboard Overview</h3>
+								<h3 className='mb-2'>Dashboard Overview</h3>
 								<p className='text-sm text-muted-foreground mb-4'>
 									View your key metrics and recent activity at a glance.
 								</p>
@@ -113,7 +113,7 @@ export default function TabsPage() {
 						</TabsContent>
 						<TabsContent value='analytics'>
 							<Card className='p-6'>
-								<h3 className='font-semibold mb-2'>Analytics</h3>
+								<h3 className='mb-2'>Analytics</h3>
 								<p className='text-sm text-muted-foreground'>
 									Detailed analytics and performance metrics for your
 									application.
@@ -122,7 +122,7 @@ export default function TabsPage() {
 						</TabsContent>
 						<TabsContent value='reports'>
 							<Card className='p-6'>
-								<h3 className='font-semibold mb-2'>Reports</h3>
+								<h3 className='mb-2'>Reports</h3>
 								<p className='text-sm text-muted-foreground'>
 									Generate and download custom reports for your data.
 								</p>
@@ -140,7 +140,7 @@ export default function TabsPage() {
   </TabsList>
   <TabsContent value="overview">
     <Card className="p-6">
-      <h3 className="font-semibold mb-2">Dashboard Overview</h3>
+      <h3 className="mb-2">Dashboard Overview</h3>
       <p className="text-sm text-muted-foreground">
         View your key metrics...
       </p>
@@ -161,7 +161,7 @@ export default function TabsPage() {
 						</TabsList>
 						<TabsContent value='home'>
 							<div className='rounded-md border p-6'>
-								<h3 className='font-semibold mb-2'>Welcome Home</h3>
+								<h3 className='mb-2'>Welcome Home</h3>
 								<p className='text-sm text-muted-foreground'>
 									This is your home dashboard with an overview of everything.
 								</p>
@@ -169,7 +169,7 @@ export default function TabsPage() {
 						</TabsContent>
 						<TabsContent value='products'>
 							<div className='rounded-md border p-6'>
-								<h3 className='font-semibold mb-2'>Products</h3>
+								<h3 className='mb-2'>Products</h3>
 								<p className='text-sm text-muted-foreground'>
 									Browse our catalog of products and services.
 								</p>
@@ -177,7 +177,7 @@ export default function TabsPage() {
 						</TabsContent>
 						<TabsContent value='services'>
 							<div className='rounded-md border p-6'>
-								<h3 className='font-semibold mb-2'>Services</h3>
+								<h3 className='mb-2'>Services</h3>
 								<p className='text-sm text-muted-foreground'>
 									Explore the services we offer to our customers.
 								</p>
@@ -185,7 +185,7 @@ export default function TabsPage() {
 						</TabsContent>
 						<TabsContent value='contact'>
 							<div className='rounded-md border p-6'>
-								<h3 className='font-semibold mb-2'>Contact Us</h3>
+								<h3 className='mb-2'>Contact Us</h3>
 								<p className='text-sm text-muted-foreground'>
 									Get in touch with our support team.
 								</p>
@@ -220,7 +220,7 @@ export default function TabsPage() {
 						</TabsList>
 						<TabsContent value='description' className='space-y-4'>
 							<div>
-								<h3 className='font-semibold mb-2'>Product Description</h3>
+								<h3 className='mb-2'>Product Description</h3>
 								<p className='text-sm text-muted-foreground'>
 									This is a high-quality product designed to meet your needs. It
 									features modern design, exceptional performance, and

@@ -94,7 +94,7 @@ export function Sidebar() {
 	return (
 		<aside className='w-64 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
 			<div className='p-6'>
-				<h2 className='text-lg font-semibold mb-6'>Design System</h2>
+				<h2 className='text-lg mb-6'>Design System</h2>
 				<nav className='space-y-1'>
 					<Link
 						href='/'
