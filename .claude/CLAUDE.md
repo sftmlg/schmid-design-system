@@ -77,6 +77,42 @@ When client provides font files:
 - Load via: `next/font/local` in `layout.tsx`
 - Never commit unlicensed fonts
 
+## Font Variable Placement Rule (CRITICAL)
+
+**next/font CSS variables MUST be applied to `<html>`, NOT `<body>`.**
+
+In `layout.tsx`:
+```tsx
+// CORRECT — font vars on <html>
+<html lang="en" className={`${font.variable} ${monoFont.variable}`}>
+  <body className="antialiased">
+
+// WRONG — font vars on <body>, breaks Tailwind theme
+<html lang="en">
+  <body className={`${font.variable} ${monoFont.variable} antialiased`}>
+```
+
+### Why This Matters
+
+Tailwind v4's `@theme inline` generates `:root`-level CSS custom properties. When `--font-sans` references a Next.js font variable (e.g., `var(--font-inter)`), that variable must be available at `:root` (`<html>`) level. If font variables are only on `<body>` (a child of `<html>`), the entire font chain resolves to empty and falls back to the browser default `ui-sans-serif`.
+
+### The Variable Chain
+
+```
+layout.tsx: <html className={font.variable}>     → sets --font-inter on <html>
+globals.css @theme: --font-sans: var(--font-inter) → resolves at :root level ✓
+Tailwind preflight: html { font-family: var(--font-sans) } → applies font ✓
+All elements inherit from html → font works everywhere ✓
+```
+
+### Verification
+
+After font changes, always verify with browser DevTools:
+```js
+getComputedStyle(document.documentElement).fontFamily
+// Should show actual font name, NOT "ui-sans-serif, system-ui, sans-serif"
+```
+
 ## Component Color Rules (CRITICAL)
 
 **NEVER hardcode Tailwind color values** (e.g., `green-500`, `yellow-500`, `blue-600`) in component variants. ALL colors MUST use semantic brand tokens defined in `brand.css`.
