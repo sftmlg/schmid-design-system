@@ -14,6 +14,7 @@ import {
 	LogIn,
 	Settings,
 	FileText,
+	Columns3,
 } from 'lucide-react';
 
 const componentItems = [
@@ -27,6 +28,7 @@ const componentItems = [
 	{ name: 'Badge', href: '/components/badge', icon: Component },
 	{ name: 'Alert', href: '/components/alert', icon: Component },
 	{ name: 'Dialog', href: '/components/dialog', icon: Component },
+	{ name: 'Tabs', href: '/components/tabs', icon: Columns3 },
 ];
 
 const pageItems = [
