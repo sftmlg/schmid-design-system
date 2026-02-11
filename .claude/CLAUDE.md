@@ -186,3 +186,43 @@ pnpm quality      # Full quality gate (lint + typecheck + build)
 2. Replace `src/app/brand.css` with client's design tokens
 3. Update font loading in `layout.tsx` if using different fonts
 4. Everything updates automatically — all components, all pages
+
+## Base → Fork Workflow (CRITICAL)
+
+**Universal fixes go in the BASE TEMPLATE, never in client forks.**
+
+### What Goes Where
+
+| Change Type | Where | Example |
+|-------------|-------|---------|
+| Bug fix in a component | BASE | cursor-pointer on buttons |
+| CSS reset / base layer rule | BASE | interactive element cursor rule |
+| New component | BASE | adding a table component |
+| Tailwind theme structure | BASE | @theme inline token mapping |
+| Brand colors/fonts | FORK | brand.css, layout.tsx fonts |
+| CI-specific content | FORK | German page content, CI font files |
+| Brand-specific @theme tokens | FORK | CI color tokens in globals.css |
+
+### Correct Flow
+
+```
+1. Fix in BASE template → commit → push
+2. In FORK: git fetch upstream && git rebase upstream/main
+3. Resolve conflicts keeping fork's brand-specific overrides
+4. Push fork (force if needed after rebase)
+```
+
+### Anti-Pattern (NEVER DO THIS)
+
+```
+❌ Fix bug in the fork only
+❌ Fix bug in both repos independently
+❌ Add universal features to fork without also adding to base
+```
+
+### Upstream Remote Setup
+
+Every fork should have the base template as `upstream`:
+```bash
+git remote add upstream https://github.com/sftmlg/design-system-template.git
+```
