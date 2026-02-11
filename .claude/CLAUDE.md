@@ -32,6 +32,51 @@ brand.css (CSS vars) → globals.css (@theme inline maps to Tailwind) → compon
 - Components use Tailwind classes (`bg-primary`, `text-foreground`) — never raw CSS vars
 - Fonts loaded via `next/font/google` in `layout.tsx`, referenced as `var(--font-inter)` in brand.css
 
+## Font Handling Rules (CRITICAL)
+
+Client CI documents often specify **commercial fonts** (e.g., Continuum, Avenir, Proxima Nova) that are NOT available on Google Fonts. The design system must handle this correctly.
+
+### Two-Font Architecture
+
+Every brand fork MUST separate heading and body fonts in `brand.css`:
+
+```css
+--font-heading: var(--font-HEADING), ui-sans-serif, system-ui, sans-serif;
+--font-body: var(--font-BODY), ui-sans-serif, system-ui, sans-serif;
+```
+
+And `globals.css` MUST apply heading font to all heading elements:
+
+```css
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+```
+
+### When CI Specifies a Commercial Font
+
+1. **Document the gap** in `brand.css` with a clear comment:
+   - Which font is specified by CI
+   - That it's not yet available
+   - Who to contact for the font files
+   - Exact steps to enable it when received
+
+2. **Use CI-approved fallback** — If the CI specifies both a commercial primary and a free secondary font (common pattern), use the secondary font as temporary fallback.
+
+3. **Never silently substitute** — Always document that a fallback is in use. Never just use a different font without explaining why.
+
+4. **Structure layout.tsx for easy swap** — Keep the font variable separate so switching from Google Font fallback to self-hosted commercial font requires changing only 2 things:
+   - `layout.tsx`: Add `localFont()` import
+   - `brand.css`: Change `var(--font-FALLBACK)` to `var(--font-COMMERCIAL)`
+
+### Font File Requirements
+
+When client provides font files:
+- Preferred format: `.woff2` (smallest, best browser support)
+- Store in: `src/fonts/` directory
+- Load via: `next/font/local` in `layout.tsx`
+- Never commit unlicensed fonts
+
 ## Component Color Rules (CRITICAL)
 
 **NEVER hardcode Tailwind color values** (e.g., `green-500`, `yellow-500`, `blue-600`) in component variants. ALL colors MUST use semantic brand tokens defined in `brand.css`.
