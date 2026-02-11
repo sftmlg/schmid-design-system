@@ -236,6 +236,82 @@ Use semantic tokens for ALL functional UI:
 - Interactive components (buttons, inputs)
 - Navigation and layout elements
 
+## AI Variation Workflow
+
+Procedure for generating multiple UI design variations using different AI systems, enabling stakeholder comparison and selection.
+
+### Step 1: Define Page Scope
+
+Before generating any code, document:
+- What data does the page display?
+- What actions can the user take?
+- Navigation context (what page leads here, what pages lead from here)
+- Mock data structure (shared across ALL AI variations for fair comparison)
+
+### Step 2: Generate Variations
+
+Each AI system creates a separate file with underscore prefix:
+
+| AI System | File | Generation Method |
+|-----------|------|-------------------|
+| Claude | `_claude.tsx` | Write directly (native design system awareness) |
+| OpenAI (GPT-4o) | `_codex.tsx` | API call with design system prompt |
+| Gemini | `_gemini.tsx` | API call with design system prompt |
+
+**Prompt template for external AI** must include:
+- Available components: `Badge`, `Button`, `Card` (CardHeader, CardTitle, CardDescription, CardContent), `Input` — all from `@/components/ui/`
+- Available icons: from `lucide-react`
+- Badge variants: `default`, `secondary`, `destructive`, `outline`, `success`, `warning`
+- Rule: Use ONLY design system tokens (`text-foreground`, `bg-muted`, etc.) — NEVER raw Tailwind colors
+- Rule: No `font-bold`/`font-semibold` on heading elements (h1-h6)
+- Rule: Export default function with variation name suffix (e.g., `OrdersClaudeVariation`)
+- Mock data: Include the shared mock data in the prompt
+- Language: Specify target language (e.g., German)
+
+### Step 3: Quality Gate
+
+Check each generated variation for:
+1. No raw Tailwind colors (`text-gray-*`, `bg-blue-*` etc.)
+2. No `font-bold`/`font-semibold` on h1-h6 elements
+3. Consistent target language
+4. Proper imports from `@/components/ui/` (not from external libraries)
+5. Same mock data across all variations
+6. Valid Badge variant values
+
+### Step 4: Wrap in Tabs
+
+Create `page.tsx` that imports all variations and wraps them in Tabs:
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import ClaudeVariation from './_claude';
+import CodexVariation from './_codex';
+import GeminiVariation from './_gemini';
+
+export default function Page() {
+  return (
+    <Tabs defaultValue="claude">
+      <TabsList>
+        <TabsTrigger value="claude">Claude</TabsTrigger>
+        <TabsTrigger value="codex">Codex</TabsTrigger>
+        <TabsTrigger value="gemini">Gemini</TabsTrigger>
+      </TabsList>
+      <TabsContent value="claude"><ClaudeVariation /></TabsContent>
+      <TabsContent value="codex"><CodexVariation /></TabsContent>
+      <TabsContent value="gemini"><GeminiVariation /></TabsContent>
+    </Tabs>
+  );
+}
+```
+
+### Step 5: Consolidate
+
+After stakeholder review:
+1. Pick the best design (or combine best elements)
+2. Create final `page.tsx` with the chosen design
+3. Delete variation files (`_claude.tsx`, `_codex.tsx`, `_gemini.tsx`)
+4. Remove Tabs wrapper
+
 ## Commands
 
 ```bash
