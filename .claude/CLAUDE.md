@@ -148,6 +148,44 @@ grep -rn 'green-\|yellow-\|blue-\|red-\|purple-\|orange-' src/components/ui/
 ```
 If any matches → replace with semantic tokens before committing.
 
+## Brand Colors vs Semantic Colors (CRITICAL)
+
+**Brand palette colors (Violet, Lime, Neon Cyan, etc.) are for brand identity display ONLY — they should appear on the Colors foundation page but NOT in application UI elements like badges, backgrounds, or status indicators.**
+
+For application UI, always use semantic tokens:
+- Status indicators: success, warning, destructive
+- Interactive: primary, secondary, accent
+- Content: foreground, muted-foreground
+- Surfaces: card, muted, background
+
+| Use Case | WRONG | CORRECT |
+|----------|-------|---------|
+| "Heizung" category badge | bg-lime/10 text-lime | bg-muted text-foreground |
+| "Sanitär" category badge | bg-neon-cyan/10 text-neon-cyan | bg-accent/10 text-accent |
+| Order status "Überfällig" | - | bg-destructive text-destructive-foreground |
+| Order status "In Arbeit" | - | bg-primary text-primary-foreground |
+| Order status "Abgeschlossen" | - | bg-success text-success-foreground |
+
+### Why This Matters
+
+Brand colors are high-saturation identity colors designed for logos and marketing. They create visual noise in UI. Semantic tokens have appropriate contrast and professional appearance.
+
+### When to Use Brand Colors
+
+Only use direct brand palette colors (violet, lime, neon-cyan, etc.) in these contexts:
+- Brand identity pages (Color foundation page showing the palette)
+- Marketing materials and landing pages
+- Logos and brand marks
+- Hero sections emphasizing brand identity
+
+### When to Use Semantic Colors
+
+Use semantic tokens for ALL functional UI:
+- Data tables, forms, dashboards
+- Badges, alerts, status indicators
+- Interactive components (buttons, inputs)
+- Navigation and layout elements
+
 ## Commands
 
 ```bash
