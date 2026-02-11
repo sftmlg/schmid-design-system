@@ -32,6 +32,41 @@ brand.css (CSS vars) → globals.css (@theme inline maps to Tailwind) → compon
 - Components use Tailwind classes (`bg-primary`, `text-foreground`) — never raw CSS vars
 - Fonts loaded via `next/font/google` in `layout.tsx`, referenced as `var(--font-inter)` in brand.css
 
+## Component Color Rules (CRITICAL)
+
+**NEVER hardcode Tailwind color values** (e.g., `green-500`, `yellow-500`, `blue-600`) in component variants. ALL colors MUST use semantic brand tokens defined in `brand.css`.
+
+### Token Mapping
+
+| Use Case | WRONG | CORRECT |
+|----------|-------|---------|
+| Success background | `bg-green-500` | `bg-success` |
+| Success text | `text-green-700` | `text-success` |
+| Success foreground | `text-white` | `text-success-foreground` |
+| Success hover | `hover:bg-green-600` | `hover:bg-success/80` |
+| Warning background | `bg-yellow-500` | `bg-warning` |
+| Warning text | `text-yellow-700` | `text-warning` |
+| Warning foreground | `text-white` | `text-warning-foreground` |
+| Warning hover | `hover:bg-yellow-600` | `hover:bg-warning/80` |
+| Primary | `bg-blue-600` | `bg-primary` |
+| Destructive | `bg-red-500` | `bg-destructive` |
+
+### Why This Matters
+
+Each brand fork defines its OWN semantic colors in `brand.css`. Hardcoding `green-500` means the color can't be customized per brand — it will always be generic Tailwind green regardless of the client's CI.
+
+### The Rule
+
+Every color in every component variant MUST reference a CSS variable from `brand.css` via Tailwind utilities (`bg-primary`, `text-muted-foreground`, `border-success`, etc.). Zero exceptions.
+
+### Verification
+
+Before committing component changes, grep for hardcoded colors:
+```bash
+grep -rn 'green-\|yellow-\|blue-\|red-\|purple-\|orange-' src/components/ui/
+```
+If any matches → replace with semantic tokens before committing.
+
 ## Commands
 
 ```bash
