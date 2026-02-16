@@ -29,6 +29,18 @@
 	--color-input: var(--input);
 	--color-ring: var(--ring);
 
+	/* CI Palette */
+	--color-brand-burgundy: var(--brand-burgundy);
+	--color-brand-burgundy-dark: var(--brand-burgundy-dark);
+	--color-brand-burgundy-light: var(--brand-burgundy-light);
+	--color-brand-charcoal: var(--brand-charcoal);
+	--color-brand-gray: var(--brand-gray);
+	--color-brand-mint: var(--brand-mint);
+	--color-brand-light-gray: var(--brand-light-gray);
+	--color-brand-off-white: var(--brand-off-white);
+	--color-brand-olive: var(--brand-olive);
+	--color-brand-blue: var(--brand-blue);
+
 	/* Radius */
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);

@@ -9,18 +9,71 @@ import { PageHeader } from '@/components/layout/page-header';
 /* ────────────────────────────────────────────────
  * Color Hierarchy Architecture
  *
- * This page is structured as a 3-layer hierarchy to prevent duplication:
+ * This page is structured as a layered hierarchy to prevent duplication:
  *
+ * Layer 0: CI Palette    — raw brand colors (Schmid Busreisen only)
  * Layer 1: Brand Tokens  — primary, secondary, accent (defined ONCE)
  * Layer 2: Surfaces      — background/foreground pairs (derived from brand or independent)
  * Layer 3: Semantic       — destructive, success, warning (independent)
  * Layer 4: Chrome        — border, input, ring (utility)
  *
- * When forking for a client with a CI palette:
- * - Add a "CI Palette" section ABOVE brand tokens showing the raw CI colors
- * - Add a "Token Mapping" section showing CI color → derived tokens
- * - This eliminates duplication: each color value appears exactly ONCE
+ * The CI Palette section shows the raw corporate identity colors exactly once,
+ * with both hex and oklch values for reference.
  * ──────────────────────────────────────────────── */
+
+/* CI Palette — raw brand colors from corporate identity */
+const ciPalette = [
+	{
+		group: 'Burgundy Family',
+		colors: [
+			{
+				name: 'Burgundy',
+				variable: '--brand-burgundy',
+				hex: '#ac031c',
+				usage: 'Primary brand red',
+			},
+			{
+				name: 'Dark Burgundy',
+				variable: '--brand-burgundy-dark',
+				hex: '#ad1730',
+				usage: 'Interactive states',
+			},
+			{
+				name: 'Light Burgundy',
+				variable: '--brand-burgundy-light',
+				hex: '#c5271a',
+				usage: 'Accents',
+			},
+		],
+	},
+	{
+		group: 'Neutrals',
+		colors: [
+			{ name: 'Charcoal', variable: '--brand-charcoal', hex: '#22272a', usage: 'Text, footer' },
+			{ name: 'Medium Gray', variable: '--brand-gray', hex: '#666666', usage: 'Secondary text' },
+			{ name: 'Mint', variable: '--brand-mint', hex: '#f2f8f7', usage: 'Light background' },
+			{
+				name: 'Light Gray',
+				variable: '--brand-light-gray',
+				hex: '#d9d9d7',
+				usage: 'Button backgrounds',
+			},
+			{
+				name: 'Off-White',
+				variable: '--brand-off-white',
+				hex: '#eeedeb',
+				usage: 'Section backgrounds',
+			},
+		],
+	},
+	{
+		group: 'Sub-brand Accents',
+		colors: [
+			{ name: 'Olive', variable: '--brand-olive', hex: '#948b6b', usage: 'E5 Hiking' },
+			{ name: 'Blue', variable: '--brand-blue', hex: '#147fa9', usage: 'E5 Accent' },
+		],
+	},
+];
 
 /* Brand tokens — the core identity colors */
 const brandColors = [
@@ -115,6 +168,41 @@ function PairedSwatch({
 	);
 }
 
+function CIColorCard({
+	name,
+	variable,
+	hex,
+	usage,
+}: {
+	name: string;
+	variable: string;
+	hex: string;
+	usage: string;
+}) {
+	const [computed, setComputed] = useState('');
+
+	useEffect(() => {
+		const val = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+		setComputed(val);
+	}, [variable]);
+
+	return (
+		<div className="space-y-2">
+			<div
+				className="h-20 w-full rounded-lg border border-border shadow-sm"
+				style={{ backgroundColor: `var(${variable})` }}
+			/>
+			<div className="space-y-0.5">
+				<p className="text-sm font-medium">{name}</p>
+				<p className="font-mono text-xs text-muted-foreground">{hex}</p>
+				<p className="font-mono text-xs text-muted-foreground">{variable}</p>
+				{computed && <p className="font-mono text-xs text-muted-foreground truncate">{computed}</p>}
+				<p className="text-xs text-muted-foreground">{usage}</p>
+			</div>
+		</div>
+	);
+}
+
 /* ──────────────────────────── Page ──────────────────────────── */
 
 export default function ColorsPage() {
@@ -125,6 +213,24 @@ export default function ColorsPage() {
 				description="Color token system using CSS variables. All colors defined once in brand.css — no duplication."
 				badge="Foundation"
 			/>
+
+			{/* ── Section 0: CI Palette ── */}
+			<Section id="ci-palette" title="CI Palette">
+				<p className="text-sm text-muted-foreground">
+					Raw brand colors from Schmid Reisen corporate identity. These are the source colors — all
+					UI tokens below are derived from these values.
+				</p>
+				{ciPalette.map((group) => (
+					<div key={group.group} className="mt-6">
+						<h3 className="text-sm font-medium mb-3">{group.group}</h3>
+						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+							{group.colors.map((color) => (
+								<CIColorCard key={color.variable} {...color} />
+							))}
+						</div>
+					</div>
+				))}
+			</Section>
 
 			{/* ── Section 1: Brand Colors ── */}
 			<Section id="brand-colors" title="Brand Colors">

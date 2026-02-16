@@ -10,7 +10,44 @@
  * All components consume these tokens via Tailwind utilities.
  */
 
+/* ─── CI Palette ─────────────────────────────────────
+ * Raw brand colors from Schmid Reisen corporate identity.
+ * These are the source colors — UI tokens below are derived from these.
+ *
+ * Burgundy family:
+ *   #ac031c  oklch(0.42 0.17 25)   — Primary brand red
+ *   #ad1730  oklch(0.43 0.16 20)   — Dark burgundy (interactive)
+ *   #c5271a  oklch(0.48 0.17 28)   — Light burgundy (accents)
+ *
+ * Neutrals:
+ *   #22272a  oklch(0.24 0.01 250)  — Charcoal (text, footer)
+ *   #666666  oklch(0.50 0 0)       — Medium gray
+ *   #f2f8f7  oklch(0.97 0.01 170)  — Mint background
+ *   #d9d9d7  oklch(0.88 0.003 100) — Light gray (buttons)
+ *   #eeedeb  oklch(0.95 0.003 90)  — Off-white (sections)
+ *
+ * Sub-brand accents:
+ *   #948b6b  oklch(0.62 0.06 90)   — Olive (E5 hiking)
+ *   #147fa9  oklch(0.55 0.12 230)  — Blue (E5 accent)
+ * ──────────────────────────────────────────────────── */
+
 :root {
+	/* ─── Brand Metadata ──────────────────────────────── */
+	--brand-name: "Schmid Reisen";
+	--brand-description: "Bus, Taxi & Bikeshuttle in Nauders, Tirol";
+
+	/* ─── CI Palette (raw brand colors) ──────────────── */
+	--brand-burgundy: oklch(0.42 0.17 25);
+	--brand-burgundy-dark: oklch(0.43 0.16 20);
+	--brand-burgundy-light: oklch(0.48 0.17 28);
+	--brand-charcoal: oklch(0.24 0.01 250);
+	--brand-gray: oklch(0.5 0 0);
+	--brand-mint: oklch(0.97 0.01 170);
+	--brand-light-gray: oklch(0.88 0.003 100);
+	--brand-off-white: oklch(0.95 0.003 90);
+	--brand-olive: oklch(0.62 0.06 90);
+	--brand-blue: oklch(0.55 0.12 230);
+
 	/* ─── Core Brand ──────────────────────────────────── */
 	--primary: oklch(0.47 0.189 25);
 	--primary-foreground: oklch(0.98 0 0);
@@ -20,13 +57,13 @@
 	--accent-foreground: oklch(0.98 0 0);
 
 	/* ─── Surfaces ────────────────────────────────────── */
-	--background: oklch(1 0 0);
+	--background: oklch(0.98 0.005 170);
 	--foreground: oklch(0.27 0.009 234);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.27 0.009 234);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.27 0.009 234);
-	--muted: oklch(0.97 0.001 25);
+	--muted: oklch(0.95 0.003 90);
 	--muted-foreground: oklch(0.56 0.01 234);
 
 	/* ─── Semantic ────────────────────────────────────── */
@@ -54,8 +91,4 @@
 	--font-heading-weight: 600;
 	--font-body: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
 	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
-
-	/* ─── Brand Metadata ──────────────────────────────── */
-	--brand-name: "Schmid Reisen";
-	--brand-description: "Bus, Taxi & Bikeshuttle in Nauders, Tirol";
 }
