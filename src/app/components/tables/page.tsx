@@ -28,7 +28,7 @@ export default function TablesPage() {
 								</tr>
 							</thead>
 							<tbody>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3">John Doe</td>
 									<td className="px-4 py-3">
 										<Badge variant="success">Active</Badge>
@@ -36,7 +36,7 @@ export default function TablesPage() {
 									<td className="px-4 py-3">Admin</td>
 									<td className="px-4 py-3">john@example.com</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3">Jane Smith</td>
 									<td className="px-4 py-3">
 										<Badge variant="success">Active</Badge>
@@ -44,7 +44,7 @@ export default function TablesPage() {
 									<td className="px-4 py-3">Editor</td>
 									<td className="px-4 py-3">jane@example.com</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3">Bob Johnson</td>
 									<td className="px-4 py-3">
 										<Badge variant="warning">Pending</Badge>
@@ -52,7 +52,7 @@ export default function TablesPage() {
 									<td className="px-4 py-3">Viewer</td>
 									<td className="px-4 py-3">bob@example.com</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3">Alice Williams</td>
 									<td className="px-4 py-3">
 										<Badge variant="success">Active</Badge>
@@ -60,7 +60,7 @@ export default function TablesPage() {
 									<td className="px-4 py-3">Admin</td>
 									<td className="px-4 py-3">alice@example.com</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3">Charlie Brown</td>
 									<td className="px-4 py-3">
 										<Badge variant="destructive">Inactive</Badge>
@@ -85,7 +85,7 @@ export default function TablesPage() {
     </tr>
   </thead>
   <tbody>
-    <tr className="border-b border-border">
+    <tr className="border-b border-border transition-colors hover:bg-muted/20">
       <td className="px-4 py-3">John Doe</td>
       <td className="px-4 py-3">
         <Badge variant="success">Active</Badge>
@@ -112,25 +112,25 @@ export default function TablesPage() {
 								</tr>
 							</thead>
 							<tbody>
-								<tr className="border-b border-border bg-muted/20">
+								<tr className="border-b border-border bg-muted/20 transition-colors hover:bg-muted/30">
 									<td className="px-4 py-3 font-medium">Laptop Pro</td>
 									<td className="px-4 py-3">Electronics</td>
 									<td className="px-4 py-3">$1,299</td>
 									<td className="px-4 py-3">45</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3 font-medium">Wireless Mouse</td>
 									<td className="px-4 py-3">Accessories</td>
 									<td className="px-4 py-3">$29</td>
 									<td className="px-4 py-3">120</td>
 								</tr>
-								<tr className="border-b border-border bg-muted/20">
+								<tr className="border-b border-border bg-muted/20 transition-colors hover:bg-muted/30">
 									<td className="px-4 py-3 font-medium">Keyboard</td>
 									<td className="px-4 py-3">Accessories</td>
 									<td className="px-4 py-3">$79</td>
 									<td className="px-4 py-3">67</td>
 								</tr>
-								<tr className="border-b border-border">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3 font-medium">Monitor 27&quot;</td>
 									<td className="px-4 py-3">Electronics</td>
 									<td className="px-4 py-3">$349</td>
@@ -144,13 +144,13 @@ export default function TablesPage() {
 				<CodeBlock
 					title="Striped Table"
 					code={`<tbody>
-  <tr className="border-b border-border bg-muted/20">
+  <tr className="border-b border-border bg-muted/20 transition-colors hover:bg-muted/30">
     <td className="px-4 py-3">Row 1</td>
   </tr>
-  <tr className="border-b border-border">
+  <tr className="border-b border-border transition-colors hover:bg-muted/20">
     <td className="px-4 py-3">Row 2</td>
   </tr>
-  <tr className="border-b border-border bg-muted/20">
+  <tr className="border-b border-border bg-muted/20 transition-colors hover:bg-muted/30">
     <td className="px-4 py-3">Row 3</td>
   </tr>
 </tbody>`}
@@ -170,7 +170,7 @@ export default function TablesPage() {
 								</tr>
 							</thead>
 							<tbody>
-								<tr className="border-b border-border hover:bg-muted/20">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3 font-medium">Update documentation</td>
 									<td className="px-4 py-3">John Doe</td>
 									<td className="px-4 py-3">
@@ -190,7 +190,7 @@ export default function TablesPage() {
 										</div>
 									</td>
 								</tr>
-								<tr className="border-b border-border hover:bg-muted/20">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3 font-medium">Fix login bug</td>
 									<td className="px-4 py-3">Jane Smith</td>
 									<td className="px-4 py-3">
@@ -210,7 +210,7 @@ export default function TablesPage() {
 										</div>
 									</td>
 								</tr>
-								<tr className="border-b border-border hover:bg-muted/20">
+								<tr className="border-b border-border transition-colors hover:bg-muted/20">
 									<td className="px-4 py-3 font-medium">Design new feature</td>
 									<td className="px-4 py-3">Bob Johnson</td>
 									<td className="px-4 py-3">
@@ -238,7 +238,7 @@ export default function TablesPage() {
 				<CodeBlock
 					title="Table with Actions"
 					code={`<tbody>
-  <tr className="border-b border-border hover:bg-muted/20">
+  <tr className="border-b border-border transition-colors hover:bg-muted/20">
     <td className="px-4 py-3">Task name</td>
     <td className="px-4 py-3">Assignee</td>
     <td className="px-4 py-3">

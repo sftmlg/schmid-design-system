@@ -15,7 +15,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 					type="radio"
 					id={radioId}
 					className={cn(
-						'h-4 w-4 border border-input accent-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+						'h-4 w-4 border border-input accent-primary transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
 						className,
 					)}
 					ref={ref}

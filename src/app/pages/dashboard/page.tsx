@@ -145,7 +145,10 @@ export default function DashboardPage() {
 							</thead>
 							<tbody>
 								{mockBookings.map((booking) => (
-									<tr key={booking.id} className="border-b last:border-0">
+									<tr
+										key={booking.id}
+										className="border-b last:border-0 transition-colors hover:bg-muted/20"
+									>
 										<td className="py-3 px-4 text-sm font-mono">{booking.id}</td>
 										<td className="py-3 px-4 text-sm">{booking.customer}</td>
 										<td className="py-3 px-4 text-sm">{booking.route}</td>
