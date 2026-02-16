@@ -51,9 +51,9 @@
 	/* ─── Core Brand ──────────────────────────────────── */
 	--primary: oklch(0.47 0.189 25);
 	--primary-foreground: oklch(0.98 0 0);
-	--secondary: oklch(0.96 0.005 25);
-	--secondary-foreground: oklch(0.27 0.009 234);
-	--accent: oklch(0.96 0.01 25);
+	--secondary: oklch(0.88 0.005 90);
+	--secondary-foreground: oklch(0.24 0.01 250);
+	--accent: oklch(0.92 0.025 25);
 	--accent-foreground: oklch(0.42 0.17 25);
 
 	/* ─── Surfaces ────────────────────────────────────── */

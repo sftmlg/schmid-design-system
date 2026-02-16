@@ -329,29 +329,31 @@ export default function ColorsPage() {
 					.
 				</p>
 				<CodeBlock
-					title="brand.css — Default Neutral Theme"
+					title="brand.css — Schmid Reisen"
 					code={`:root {
   /* Core Brand */
-  --primary: oklch(0.37 0.07 260);
+  --primary: oklch(0.47 0.189 25);      /* Burgundy */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.005 260);
-  --accent: oklch(0.96 0.005 260);
+  --secondary: oklch(0.88 0.005 90);    /* CI Light Gray (#d9d9d7) */
+  --secondary-foreground: oklch(0.24 0.01 250);
+  --accent: oklch(0.92 0.025 25);       /* Warm rosé tint */
+  --accent-foreground: oklch(0.42 0.17 25);
 
   /* Surfaces */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.14 0.005 285);
+  --background: oklch(0.98 0.005 170);  /* CI Mint (#f2f8f7) */
+  --foreground: oklch(0.27 0.009 234);  /* CI Charcoal (#22272a) */
   --card: oklch(1 0 0);
-  --muted: oklch(0.97 0.001 286);
+  --muted: oklch(0.95 0.003 90);        /* CI Off-White (#eeedeb) */
 
   /* Semantic */
-  --destructive: oklch(0.58 0.22 29);
-  --success: oklch(0.65 0.17 162);
-  --warning: oklch(0.75 0.18 85);
+  --destructive: oklch(0.58 0.215 27);
+  --success: oklch(0.63 0.17 149);
+  --warning: oklch(0.8 0.162 86);
 
   /* Chrome */
-  --border: oklch(0.92 0.004 286);
-  --ring: oklch(0.37 0.07 260);
-  --radius: 0.625rem;
+  --border: oklch(0.92 0.004 234);
+  --ring: oklch(0.47 0.189 25);         /* Burgundy focus ring */
+  --radius: 0.5rem;
 }`}
 				/>
 			</Section>
