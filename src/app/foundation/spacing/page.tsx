@@ -1,7 +1,7 @@
-import { PageHeader } from '@/components/layout/page-header';
-import { Section } from '@/components/docs/section';
-import { ComponentPreview } from '@/components/docs/component-preview';
 import { CodeBlock } from '@/components/docs/code-block';
+import { ComponentPreview } from '@/components/docs/component-preview';
+import { Section } from '@/components/docs/section';
+import { PageHeader } from '@/components/layout/page-header';
 
 export default function SpacingPage() {
 	const spacingScale = [
@@ -18,35 +18,28 @@ export default function SpacingPage() {
 	];
 
 	return (
-		<div className='container mx-auto max-w-5xl py-8'>
+		<div className="container mx-auto max-w-5xl py-8">
 			<PageHeader
-				title='Spacing'
-				description='Spacing scale, layout tokens, border radius, and shadows.'
-				badge='Foundation'
+				title="Spacing"
+				description="Spacing scale, layout tokens, border radius, and shadows."
+				badge="Foundation"
 			/>
 
-			<Section id='spacing-scale' title='Spacing Scale'>
+			<Section id="spacing-scale" title="Spacing Scale">
 				<ComponentPreview>
-					<div className='space-y-4'>
+					<div className="space-y-4">
 						{spacingScale.map((space) => (
-							<div key={space.size} className='flex items-center gap-4'>
-								<div className='w-16 text-sm text-muted-foreground'>
-									{space.size}
-								</div>
-								<div
-									className='h-8 rounded bg-primary'
-									style={{ width: space.size }}
-								/>
-								<div className='font-mono text-sm text-muted-foreground'>
-									{space.class}
-								</div>
+							<div key={space.size} className="flex items-center gap-4">
+								<div className="w-16 text-sm text-muted-foreground">{space.size}</div>
+								<div className="h-8 rounded bg-primary" style={{ width: space.size }} />
+								<div className="font-mono text-sm text-muted-foreground">{space.class}</div>
 							</div>
 						))}
 					</div>
 				</ComponentPreview>
 
 				<CodeBlock
-					title='Usage'
+					title="Usage"
 					code={`// Padding
 <div className="p-4">Content with 16px padding</div>
 
@@ -59,85 +52,69 @@ export default function SpacingPage() {
 				/>
 			</Section>
 
-			<Section id='border-radius' title='Border Radius'>
+			<Section id="border-radius" title="Border Radius">
 				<ComponentPreview>
-					<div className='grid grid-cols-2 gap-6 md:grid-cols-4'>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-sm border-2 border-primary bg-primary/10'>
-								<span className='font-mono text-sm'>sm</span>
+					<div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-sm border-2 border-primary bg-primary/10">
+								<span className="font-mono text-sm">sm</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								rounded-sm · 2px
-							</p>
+							<p className="text-center text-sm text-muted-foreground">rounded-sm · 2px</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-md border-2 border-primary bg-primary/10'>
-								<span className='font-mono text-sm'>md</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-md border-2 border-primary bg-primary/10">
+								<span className="font-mono text-sm">md</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								rounded-md · 6px
-							</p>
+							<p className="text-center text-sm text-muted-foreground">rounded-md · 6px</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-lg border-2 border-primary bg-primary/10'>
-								<span className='font-mono text-sm'>lg</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-lg border-2 border-primary bg-primary/10">
+								<span className="font-mono text-sm">lg</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								rounded-lg · 8px
-							</p>
+							<p className="text-center text-sm text-muted-foreground">rounded-lg · 8px</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-xl border-2 border-primary bg-primary/10'>
-								<span className='font-mono text-sm'>xl</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-xl border-2 border-primary bg-primary/10">
+								<span className="font-mono text-sm">xl</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								rounded-xl · 12px
-							</p>
+							<p className="text-center text-sm text-muted-foreground">rounded-xl · 12px</p>
 						</div>
 					</div>
 				</ComponentPreview>
 			</Section>
 
-			<Section id='shadows' title='Shadows'>
+			<Section id="shadows" title="Shadows">
 				<ComponentPreview>
-					<div className='grid grid-cols-2 gap-6 md:grid-cols-4'>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-lg bg-card shadow-sm'>
-								<span className='font-mono text-sm'>sm</span>
+					<div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-lg bg-card shadow-sm">
+								<span className="font-mono text-sm">sm</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								shadow-sm
-							</p>
+							<p className="text-center text-sm text-muted-foreground">shadow-sm</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-lg bg-card shadow'>
-								<span className='font-mono text-sm'>default</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-lg bg-card shadow">
+								<span className="font-mono text-sm">default</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								shadow
-							</p>
+							<p className="text-center text-sm text-muted-foreground">shadow</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-lg bg-card shadow-md'>
-								<span className='font-mono text-sm'>md</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-lg bg-card shadow-md">
+								<span className="font-mono text-sm">md</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								shadow-md
-							</p>
+							<p className="text-center text-sm text-muted-foreground">shadow-md</p>
 						</div>
-						<div className='space-y-2'>
-							<div className='flex h-24 items-center justify-center rounded-lg bg-card shadow-lg'>
-								<span className='font-mono text-sm'>lg</span>
+						<div className="space-y-2">
+							<div className="flex h-24 items-center justify-center rounded-lg bg-card shadow-lg">
+								<span className="font-mono text-sm">lg</span>
 							</div>
-							<p className='text-center text-sm text-muted-foreground'>
-								shadow-lg
-							</p>
+							<p className="text-center text-sm text-muted-foreground">shadow-lg</p>
 						</div>
 					</div>
 				</ComponentPreview>
 
 				<CodeBlock
-					title='Usage'
+					title="Usage"
 					code={`// Border radius
 <div className="rounded-sm">Small radius (2px)</div>
 <div className="rounded-md">Medium radius (6px)</div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
 import { CodeBlock } from '@/components/docs/code-block';
 import { ComponentPreview } from '@/components/docs/component-preview';
 import { Section } from '@/components/docs/section';
@@ -40,9 +39,24 @@ const surfaceMapping = [
 
 /* Semantic colors — independent of brand palette */
 const semanticColors = [
-	{ name: 'Destructive', variable: '--destructive', fgVar: '--destructive-foreground', usage: 'Errors, delete actions' },
-	{ name: 'Success', variable: '--success', fgVar: '--success-foreground', usage: 'Completed, confirmed' },
-	{ name: 'Warning', variable: '--warning', fgVar: '--warning-foreground', usage: 'Caution, overdue' },
+	{
+		name: 'Destructive',
+		variable: '--destructive',
+		fgVar: '--destructive-foreground',
+		usage: 'Errors, delete actions',
+	},
+	{
+		name: 'Success',
+		variable: '--success',
+		fgVar: '--success-foreground',
+		usage: 'Completed, confirmed',
+	},
+	{
+		name: 'Warning',
+		variable: '--warning',
+		fgVar: '--warning-foreground',
+		usage: 'Caution, overdue',
+	},
 ];
 
 /* Chrome — border/input/ring */
@@ -54,13 +68,7 @@ const chromeColors = [
 
 /* ──────────────────────────── Components ──────────────────────────── */
 
-function ColorSwatch({
-	variable,
-	size = 'md',
-}: {
-	variable: string;
-	size?: 'sm' | 'md' | 'lg';
-}) {
+function ColorSwatch({ variable, size = 'md' }: { variable: string; size?: 'sm' | 'md' | 'lg' }) {
 	const [computed, setComputed] = useState('');
 
 	useEffect(() => {
@@ -121,7 +129,9 @@ export default function ColorsPage() {
 			{/* ── Section 1: Brand Colors ── */}
 			<Section id="brand-colors" title="Brand Colors">
 				<p className="text-sm text-muted-foreground">
-					Core identity colors. When forking, replace these in <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">brand.css</code> with the client's CI palette.
+					Core identity colors. When forking, replace these in{' '}
+					<code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">brand.css</code> with
+					the client's CI palette.
 				</p>
 				<ComponentPreview>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -206,11 +216,14 @@ export default function ColorsPage() {
 			{/* ── Section 5: Code Reference ── */}
 			<Section id="code" title="CSS Variables (brand.css)">
 				<p className="text-sm text-muted-foreground">
-					Full token definition. To rebrand: replace <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">src/app/brand.css</code>.
+					Full token definition. To rebrand: replace{' '}
+					<code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">
+						src/app/brand.css
+					</code>
+					.
 				</p>
 				<CodeBlock
 					title="brand.css — Default Neutral Theme"
-					language="css"
 					code={`:root {
   /* Core Brand */
   --primary: oklch(0.37 0.07 260);

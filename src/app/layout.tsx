@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono, Raleway } from 'next/font/google';
 import './globals.css';
 import { Sidebar } from '@/components/layout/sidebar';
 
-const inter = Inter({
-	variable: '--font-inter',
-	subsets: ['latin'],
+const raleway = Raleway({
+	variable: '--font-raleway',
+	subsets: ['latin', 'latin-ext'],
+	weight: ['300', '400', '500', '600', '700'],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -14,8 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Design System',
-	description: 'Component design system and brand reference',
+	title: 'Schmid Design System',
+	description: 'Brand design system for Schmid Reisen · Bus, Taxi & Bikeshuttle',
 };
 
 export default function RootLayout({
@@ -24,7 +25,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+		<html lang="en" className={`${raleway.variable} ${jetbrainsMono.variable}`}>
 			<body className="antialiased">
 				<div className="flex min-h-screen">
 					<Sidebar />

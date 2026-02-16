@@ -1,16 +1,15 @@
 'use client';
 
+import { Check, Copy } from 'lucide-react';
 import * as React from 'react';
-import { Copy, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface CodeBlockProps {
 	code: string;
-	language?: string;
 	title?: string;
 }
 
-export function CodeBlock({ code, language = 'tsx', title }: CodeBlockProps) {
+export function CodeBlock({ code, title }: CodeBlockProps) {
 	const [isCopied, setIsCopied] = React.useState(false);
 
 	const handleCopy = React.useCallback(async () => {
@@ -20,32 +19,36 @@ export function CodeBlock({ code, language = 'tsx', title }: CodeBlockProps) {
 	}, [code]);
 
 	return (
-		<div className="relative rounded-lg overflow-hidden border bg-[#0d1117]">
+		<div className="relative mt-6 rounded-lg border bg-card overflow-hidden">
 			{title && (
-				<div className="border-b border-gray-800 px-4 py-2 text-sm text-gray-400">
-					{title}
+				<div className="flex items-center justify-between border-b px-4 py-3 bg-muted/40">
+					<h4 className="text-sm font-medium">{title}</h4>
+					<button
+						type="button"
+						onClick={handleCopy}
+						className={cn(
+							'flex items-center gap-2 rounded px-3 py-1.5 text-xs font-medium transition-colors',
+							'hover:bg-muted',
+							isCopied && 'text-success',
+						)}
+					>
+						{isCopied ? (
+							<>
+								<Check className="h-3 w-3" />
+								Copied
+							</>
+						) : (
+							<>
+								<Copy className="h-3 w-3" />
+								Copy
+							</>
+						)}
+					</button>
 				</div>
 			)}
-			<div className="relative">
-				<button
-					type="button"
-					onClick={handleCopy}
-					className="absolute right-4 top-4 rounded-md p-2 transition-colors hover:bg-gray-800 text-gray-400 hover:text-gray-200"
-					aria-label={isCopied ? 'Copied' : 'Copy code'}
-				>
-					{isCopied ? (
-						<Check className="h-4 w-4" />
-					) : (
-						<Copy className="h-4 w-4" />
-					)}
-				</button>
-				<pre
-					className={cn(
-						'overflow-x-auto p-4 text-sm text-gray-200',
-						'scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent',
-					)}
-				>
-					<code className="font-mono text-sm">{code}</code>
+			<div className="overflow-x-auto">
+				<pre className="p-4 text-sm">
+					<code>{code}</code>
 				</pre>
 			</div>
 		</div>

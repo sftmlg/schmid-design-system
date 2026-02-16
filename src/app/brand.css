@@ -1,58 +1,61 @@
 /*
- * Brand Configuration — THE FILE YOU SWAP PER CLIENT
+ * Schmid Busreisen — Brand Design Tokens
  *
- * This file defines all design tokens for the brand.
- * Replace this file to rebrand the entire design system.
+ * Brand: Schmid Reisen · Taxi & Bus
+ * Location: Nauders, Tirol
+ * Primary color: Burgundy (#ac031c)
+ * Font: Raleway (Google Fonts)
  *
- * Default: Neutral professional theme
+ * This is THE file to change for brand updates.
+ * All components consume these tokens via Tailwind utilities.
  */
 
 :root {
-	/* Core Brand */
-	--primary: oklch(0.37 0.07 260);
+	/* ─── Core Brand ──────────────────────────────────── */
+	--primary: oklch(0.47 0.189 25);
 	--primary-foreground: oklch(0.98 0 0);
-	--secondary: oklch(0.96 0.005 260);
-	--secondary-foreground: oklch(0.21 0.02 260);
-	--accent: oklch(0.96 0.005 260);
-	--accent-foreground: oklch(0.21 0.02 260);
+	--secondary: oklch(0.96 0.005 25);
+	--secondary-foreground: oklch(0.27 0.009 234);
+	--accent: oklch(0.55 0.05 250);
+	--accent-foreground: oklch(0.98 0 0);
 
-	/* Surfaces */
+	/* ─── Surfaces ────────────────────────────────────── */
 	--background: oklch(1 0 0);
-	--foreground: oklch(0.14 0.005 285);
+	--foreground: oklch(0.27 0.009 234);
 	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.14 0.005 285);
+	--card-foreground: oklch(0.27 0.009 234);
 	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.14 0.005 285);
-	--muted: oklch(0.97 0.001 286);
-	--muted-foreground: oklch(0.55 0.015 260);
+	--popover-foreground: oklch(0.27 0.009 234);
+	--muted: oklch(0.97 0.001 25);
+	--muted-foreground: oklch(0.56 0.01 234);
 
-	/* Semantic */
-	--destructive: oklch(0.58 0.22 29);
+	/* ─── Semantic ────────────────────────────────────── */
+	--destructive: oklch(0.58 0.215 27);
 	--destructive-foreground: oklch(0.98 0 0);
-	--success: oklch(0.65 0.17 162);
+	--success: oklch(0.63 0.17 149);
 	--success-foreground: oklch(0.98 0 0);
-	--warning: oklch(0.75 0.18 85);
-	--warning-foreground: oklch(0.21 0.02 260);
+	--warning: oklch(0.8 0.162 86);
+	--warning-foreground: oklch(0.27 0.009 234);
 
-	/* Chrome */
-	--border: oklch(0.92 0.004 286);
-	--input: oklch(0.92 0.004 286);
-	--ring: oklch(0.37 0.07 260);
+	/* ─── Chrome ──────────────────────────────────────── */
+	--border: oklch(0.92 0.004 234);
+	--input: oklch(0.92 0.004 234);
+	--ring: oklch(0.47 0.189 25);
 
-	/* Sidebar */
-	--sidebar: oklch(0.985 0.001 286);
-	--sidebar-foreground: oklch(0.14 0.005 285);
+	/* ─── Sidebar ─────────────────────────────────────── */
+	--sidebar: oklch(0.985 0.001 25);
+	--sidebar-foreground: oklch(0.27 0.009 234);
 
-	/* Shapes */
-	--radius: 0.625rem;
+	/* ─── Shapes ──────────────────────────────────────── */
+	--radius: 0.5rem;
 
-	/* Typography — use font names directly (next/font loads @font-face globally) */
-	--font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--font-heading-weight: 700;
-	--font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+	/* ─── Typography ──────────────────────────────────── */
+	--font-heading: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+	--font-heading-weight: 600;
+	--font-body: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-	/* Brand Metadata (used by overview page) */
-	--brand-name: 'Design System';
-	--brand-description: 'A professional component design system template';
+	/* ─── Brand Metadata ──────────────────────────────── */
+	--brand-name: "Schmid Reisen";
+	--brand-description: "Bus, Taxi & Bikeshuttle in Nauders, Tirol";
 }

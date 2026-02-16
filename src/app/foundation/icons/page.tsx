@@ -1,49 +1,49 @@
-import { PageHeader } from '@/components/layout/page-header';
-import { Section } from '@/components/docs/section';
-import { ComponentPreview } from '@/components/docs/component-preview';
-import { CodeBlock } from '@/components/docs/code-block';
 import {
-	Home,
-	Search,
-	Menu,
-	MoreHorizontal,
-	MoreVertical,
+	Bell,
+	Bookmark,
+	Calendar,
+	Check,
 	ChevronDown,
-	ChevronUp,
 	ChevronLeft,
 	ChevronRight,
-	Plus,
-	Minus,
-	X,
-	Check,
-	Star,
-	Heart,
-	Bookmark,
-	Filter,
-	SortAsc,
-	SortDesc,
-	Grid3x3,
-	List,
-	Columns3,
-	Rows4,
-	Square,
-	Settings,
-	User,
-	Bell,
-	Mail,
-	Calendar,
+	ChevronUp,
 	Clock,
-	Download,
-	Upload,
-	Share,
-	ExternalLink,
+	Columns3,
 	Copy,
-	Trash,
+	Download,
 	Edit,
+	ExternalLink,
 	Eye,
 	EyeOff,
+	Filter,
+	Grid3x3,
+	Heart,
+	Home,
+	List,
 	type LucideIcon,
+	Mail,
+	Menu,
+	Minus,
+	MoreHorizontal,
+	MoreVertical,
+	Plus,
+	Rows4,
+	Search,
+	Settings,
+	Share,
+	SortAsc,
+	SortDesc,
+	Square,
+	Star,
+	Trash,
+	Upload,
+	User,
+	X,
 } from 'lucide-react';
+import { CodeBlock } from '@/components/docs/code-block';
+import { ComponentPreview } from '@/components/docs/component-preview';
+import { Section } from '@/components/docs/section';
+import { PageHeader } from '@/components/layout/page-header';
 
 export default function IconsPage() {
 	const icons: Array<{ Icon: LucideIcon; name: string }> = [
@@ -89,32 +89,30 @@ export default function IconsPage() {
 	];
 
 	return (
-		<div className='container mx-auto max-w-5xl py-8'>
+		<div className="container mx-auto max-w-5xl py-8">
 			<PageHeader
-				title='Icons'
-				description='Essential interface icons powered by Lucide for buttons, menus, controls, and UI interactions.'
-				badge='Foundation'
+				title="Icons"
+				description="Essential interface icons powered by Lucide for buttons, menus, controls, and UI interactions."
+				badge="Foundation"
 			/>
 
-			<Section id='interface-icons' title='Interface Icons'>
+			<Section id="interface-icons" title="Interface Icons">
 				<ComponentPreview>
-					<div className='grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8'>
+					<div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
 						{icons.map(({ Icon, name }) => (
 							<div
 								key={name}
-								className='flex flex-col items-center justify-center gap-2 rounded-lg border border-border p-4 hover:bg-accent'
+								className="flex flex-col items-center justify-center gap-2 rounded-lg border border-border p-4 hover:bg-accent"
 							>
-								<Icon className='h-6 w-6' />
-								<span className='text-center text-xs text-muted-foreground'>
-									{name}
-								</span>
+								<Icon className="h-6 w-6" />
+								<span className="text-center text-xs text-muted-foreground">{name}</span>
 							</div>
 						))}
 					</div>
 				</ComponentPreview>
 
 				<CodeBlock
-					title='Usage'
+					title="Usage"
 					code={`import { Home, Search, Settings } from 'lucide-react';
 
 // Default size (24x24)

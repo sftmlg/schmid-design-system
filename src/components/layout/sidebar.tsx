@@ -1,21 +1,22 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import {
 	ChevronDown,
 	ChevronRight,
-	Palette,
-	Type,
+	Columns3,
 	Component,
+	FileText,
 	LayoutDashboard,
 	LogIn,
+	Palette,
 	Settings,
-	FileText,
-	Columns3,
+	Type,
 } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import type { ComponentType } from 'react';
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const componentItems = [
 	{ name: 'Button', href: '/components/button', icon: Component },
@@ -43,26 +44,27 @@ function NavSection({
 	items,
 }: {
 	title: string;
-	items: { name: string; href: string; icon: any }[];
+	items: { name: string; href: string; icon: ComponentType<{ className?: string }> }[];
 }) {
 	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(true);
 
 	return (
-		<div className='mb-6'>
+		<div className="mb-6">
 			<button
+				type="button"
 				onClick={() => setIsOpen(!isOpen)}
-				className='flex items-center w-full px-3 py-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors'
+				className="flex items-center w-full px-3 py-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors"
 			>
 				{isOpen ? (
-					<ChevronDown className='h-4 w-4 mr-2' />
+					<ChevronDown className="h-4 w-4 mr-2" />
 				) : (
-					<ChevronRight className='h-4 w-4 mr-2' />
+					<ChevronRight className="h-4 w-4 mr-2" />
 				)}
 				{title}
 			</button>
 			{isOpen && (
-				<div className='mt-1 space-y-1'>
+				<div className="mt-1 space-y-1">
 					{items.map((item) => {
 						const Icon = item.icon;
 						const isActive = pathname === item.href;
@@ -74,10 +76,10 @@ function NavSection({
 									'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
 									isActive
 										? 'bg-primary/10 text-primary font-medium'
-										: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
+										: 'text-foreground/60 hover:text-foreground hover:bg-muted/50',
 								)}
 							>
-								<Icon className='h-4 w-4 mr-3' />
+								<Icon className="h-4 w-4 mr-3" />
 								{item.name}
 							</Link>
 						);
@@ -92,39 +94,39 @@ export function Sidebar() {
 	const pathname = usePathname();
 
 	return (
-		<aside className='w-64 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
-			<div className='p-6'>
-				<h2 className='text-lg mb-6'>Design System</h2>
-				<nav className='space-y-1'>
+		<aside className="w-64 border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+			<div className="p-6">
+				<h2 className="text-lg mb-6">Design System</h2>
+				<nav className="space-y-1">
 					<Link
-						href='/'
+						href="/"
 						className={cn(
 							'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
 							pathname === '/'
 								? 'bg-primary/10 text-primary font-medium'
-								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
+								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50',
 						)}
 					>
-						<Palette className='h-4 w-4 mr-3' />
+						<Palette className="h-4 w-4 mr-3" />
 						Colors
 					</Link>
 					<Link
-						href='/typography'
+						href="/typography"
 						className={cn(
 							'flex items-center px-3 py-2 text-sm rounded-md transition-colors',
 							pathname === '/typography'
 								? 'bg-primary/10 text-primary font-medium'
-								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50'
+								: 'text-foreground/60 hover:text-foreground hover:bg-muted/50',
 						)}
 					>
-						<Type className='h-4 w-4 mr-3' />
+						<Type className="h-4 w-4 mr-3" />
 						Typography
 					</Link>
 				</nav>
 
-				<div className='mt-8'>
-					<NavSection title='Components' items={componentItems} />
-					<NavSection title='Pages' items={pageItems} />
+				<div className="mt-8">
+					<NavSection title="Components" items={componentItems} />
+					<NavSection title="Pages" items={pageItems} />
 				</div>
 			</div>
 		</aside>

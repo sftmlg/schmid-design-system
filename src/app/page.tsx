@@ -1,24 +1,18 @@
-import Link from 'next/link';
 import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import {
-	Type,
-	Palette,
-	Ruler,
-	Grid3X3,
-	RectangleHorizontal,
-	TextCursorInput,
+	AlertCircle,
 	CreditCard,
+	Grid3X3,
+	Palette,
+	RectangleHorizontal,
+	Ruler,
 	Table,
 	Tag,
-	AlertCircle,
+	TextCursorInput,
+	Type,
 } from 'lucide-react';
+import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const foundationLinks = [
 	{
@@ -92,9 +86,9 @@ export default function HomePage() {
 			<div className="space-y-4">
 				<h1 className="text-4xl tracking-tight">Design System</h1>
 				<p className="text-xl text-muted-foreground max-w-3xl">
-					A comprehensive design system built with Next.js, Tailwind CSS, and
-					modern web standards. Explore our foundation elements and reusable
-					components to build consistent, accessible interfaces.
+					A comprehensive design system built with Next.js, Tailwind CSS, and modern web standards.
+					Explore our foundation elements and reusable components to build consistent, accessible
+					interfaces.
 				</p>
 			</div>
 
@@ -105,9 +99,7 @@ export default function HomePage() {
 						<CardDescription>Foundation Categories</CardDescription>
 					</CardHeader>
 					<CardContent>
-						<p className="text-sm text-muted-foreground">
-							Typography, Colors, Spacing, and Icons
-						</p>
+						<p className="text-sm text-muted-foreground">Typography, Colors, Spacing, and Icons</p>
 					</CardContent>
 				</Card>
 				<Card>
@@ -127,9 +119,7 @@ export default function HomePage() {
 						<CardDescription>Accessible</CardDescription>
 					</CardHeader>
 					<CardContent>
-						<p className="text-sm text-muted-foreground">
-							WCAG 2.1 AA compliant components
-						</p>
+						<p className="text-sm text-muted-foreground">WCAG 2.1 AA compliant components</p>
 					</CardContent>
 				</Card>
 			</div>

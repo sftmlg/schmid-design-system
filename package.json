@@ -1,9 +1,9 @@
 {
-	"name": "design-system-template",
+	"name": "schmid-design-system",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack -p 5050",
+		"dev": "next dev --turbopack -p 5052",
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome check .",

@@ -1,7 +1,7 @@
 'use client';
 
-import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // Tabs Context
@@ -10,9 +10,7 @@ interface TabsContextValue {
 	onValueChange: (value: string) => void;
 }
 
-const TabsContext = React.createContext<TabsContextValue | undefined>(
-	undefined,
-);
+const TabsContext = React.createContext<TabsContextValue | undefined>(undefined);
 
 const useTabsContext = () => {
 	const context = React.useContext(TabsContext);
@@ -50,21 +48,19 @@ Tabs.displayName = 'Tabs';
 // TabsList
 export interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
-	({ className, ...props }, ref) => {
-		return (
-			<div
-				ref={ref}
-				role='tablist'
-				className={cn(
-					'inline-flex h-9 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground',
-					className,
-				)}
-				{...props}
-			/>
-		);
-	},
-);
+const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(({ className, ...props }, ref) => {
+	return (
+		<div
+			ref={ref}
+			role="tablist"
+			className={cn(
+				'inline-flex h-9 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground',
+				className,
+			)}
+			{...props}
+		/>
+	);
+});
 TabsList.displayName = 'TabsList';
 
 // TabsTrigger
@@ -97,8 +93,8 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
 		return (
 			<button
 				ref={ref}
-				type='button'
-				role='tab'
+				type="button"
+				role="tab"
 				aria-selected={isActive}
 				aria-controls={`tabpanel-${value}`}
 				data-state={isActive ? 'active' : 'inactive'}
@@ -126,11 +122,14 @@ const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
 		return (
 			<div
 				ref={ref}
-				role='tabpanel'
+				role="tabpanel"
 				id={`tabpanel-${value}`}
 				aria-labelledby={`tab-${value}`}
 				data-state={isActive ? 'active' : 'inactive'}
-				className={cn('mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2', className)}
+				className={cn(
+					'mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+					className,
+				)}
 				{...props}
 			/>
 		);

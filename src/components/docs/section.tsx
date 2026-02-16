@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 export interface SectionProps {
 	id: string;
@@ -9,9 +9,7 @@ export interface SectionProps {
 export function Section({ id, title, children }: SectionProps) {
 	return (
 		<section id={id} className="scroll-mt-20 mt-12 space-y-4">
-			<h2 className="text-2xl tracking-tight border-b pb-2">
-				{title}
-			</h2>
+			<h2 className="text-2xl tracking-tight border-b pb-2">{title}</h2>
 			<div className="space-y-4">{children}</div>
 		</section>
 	);

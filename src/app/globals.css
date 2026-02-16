@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import './brand.css';
+@import "tailwindcss";
+@import "./brand.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -37,10 +37,10 @@
 	--radius-2xl: calc(var(--radius) + 8px);
 
 	/* Fonts — reference Next.js font variables directly
-	   CRITICAL: Font CSS variables (--font-inter, --font-jetbrains) are set by
+	   CRITICAL: Font CSS variables (--font-raleway, --font-jetbrains) are set by
 	   next/font classes on <html>. They MUST be on <html>, not <body>, because
 	   @theme inline generates :root-level vars that need access to them. */
-	--font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+	--font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
 	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
@@ -55,11 +55,20 @@
 	/* Heading font: family + weight controlled by brand tokens.
 	   NEVER add font-bold/font-semibold to heading elements in components —
 	   weight is centralized here so brand forks change it in ONE place (brand.css). */
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		font-family: var(--font-heading);
 		font-weight: var(--font-heading-weight);
 	}
-	button, [role="button"], a, select, summary {
+	button,
+	[role="button"],
+	a,
+	select,
+	summary {
 		cursor: pointer;
 	}
 }
