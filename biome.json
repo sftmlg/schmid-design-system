@@ -9,7 +9,8 @@
 			"recommended": true,
 			"a11y": {
 				"recommended": true,
-				"noAutofocus": "warn"
+				"noAutofocus": "warn",
+				"noLabelWithoutControl": "off"
 			},
 			"correctness": {
 				"noUnusedImports": "error",

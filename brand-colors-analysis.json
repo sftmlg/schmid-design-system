@@ -1,0 +1,138 @@
+{
+	"extractionDate": "2026-02-16",
+	"sites": {
+		"schmid-nauders": {
+			"url": "https://www.schmid-nauders.com",
+			"screenshot": "schmid-nauders-homepage.png",
+			"textColors": ["#22272a", "#ad1730", "#c5271a", "#666666"],
+			"backgroundColors": ["#22272a", "#f2f8f7", "#d9d9d7", "#eeedeb", "#d4d3cc", "#2b2b2b"],
+			"specificElements": {
+				"header": null,
+				"buttons": [
+					{
+						"background": "#d9d9d7",
+						"text": "#22272a"
+					}
+				],
+				"links": "#ad1730",
+				"footer": "#22272a"
+			}
+		},
+		"bikeshuttle-schmid": {
+			"url": "https://www.bikeshuttle-schmid.at",
+			"screenshot": "bikeshuttle-schmid-homepage.png",
+			"textColors": ["#1b1c1b", "#b51621", "#da8b90", "#666666", "#333333", "#eaeae9", "#dbdbdb"],
+			"backgroundColors": ["#1b1c1b", "#b51621", "#333333"],
+			"specificElements": {
+				"header": null,
+				"buttons": [
+					{
+						"background": null,
+						"text": "#b51621"
+					}
+				],
+				"links": "#b51621",
+				"footer": null
+			}
+		},
+		"e5-fernwanderweg": {
+			"url": "https://www.e5-fernwanderweg-oberstdorf-meran.com",
+			"screenshot": "e5-fernwanderweg-homepage.png",
+			"textColors": [
+				"#666666",
+				"#282828",
+				"#fafafa",
+				"#eeeeee",
+				"#808080",
+				"#0000ee",
+				"#cccccc",
+				"#333333",
+				"#454545",
+				"#696c76",
+				"#323335"
+			],
+			"backgroundColors": [
+				"#948b6b",
+				"#222222",
+				"#474335",
+				"#e9e9e9",
+				"#f6f6f6",
+				"#f4f5f9",
+				"#e6e7f0",
+				"#147fa9",
+				"#1c1c1c"
+			],
+			"specificElements": {
+				"header": null,
+				"buttons": [
+					{
+						"background": null,
+						"text": "#282828"
+					}
+				],
+				"links": "#282828",
+				"footer": "#948b6b"
+			}
+		}
+	},
+	"analysis": {
+		"primaryBrandColors": {
+			"burgundy": {
+				"variants": ["#ac031c", "#ad1730", "#b51621", "#c5271a"],
+				"usage": "Primary brand color - used for headers, navigation, links, CTAs",
+				"sites": ["schmid-nauders", "bikeshuttle-schmid"]
+			},
+			"darkGray": {
+				"variants": ["#22272a", "#1b1c1b", "#282828", "#2b2b2b", "#222222"],
+				"usage": "Dark text, footer backgrounds, body text",
+				"sites": ["schmid-nauders", "bikeshuttle-schmid", "e5-fernwanderweg"]
+			},
+			"lightGray": {
+				"variants": [
+					"#f2f8f7",
+					"#d9d9d7",
+					"#eeedeb",
+					"#d4d3cc",
+					"#eaeae9",
+					"#dbdbdb",
+					"#e9e9e9",
+					"#f6f6f6",
+					"#eeeeee"
+				],
+				"usage": "Backgrounds, buttons, subtle sections",
+				"sites": ["schmid-nauders", "bikeshuttle-schmid", "e5-fernwanderweg"]
+			}
+		},
+		"accentColors": {
+			"olive": {
+				"variants": ["#948b6b", "#474335"],
+				"usage": "Footer background on E5 site",
+				"sites": ["e5-fernwanderweg"]
+			},
+			"blue": {
+				"variants": ["#147fa9"],
+				"usage": "Accent on E5 site",
+				"sites": ["e5-fernwanderweg"]
+			},
+			"pink": {
+				"variants": ["#da8b90"],
+				"usage": "Light accent on bikeshuttle",
+				"sites": ["bikeshuttle-schmid"]
+			}
+		},
+		"neutralColors": {
+			"mediumGray": ["#666666", "#808080", "#333333", "#454545", "#696c76", "#323335", "#cccccc"]
+		},
+		"recommendations": {
+			"coreBrandPalette": {
+				"primary": "#ac031c",
+				"primaryDark": "#ad1730",
+				"darkText": "#22272a",
+				"lightBackground": "#f2f8f7",
+				"mediumGray": "#666666",
+				"buttonBackground": "#d9d9d7"
+			},
+			"notes": "The burgundy/red (#ac031c family) is the strongest brand identifier across all sites. Dark grays provide professional contrast. Light grays create clean, spacious layouts."
+		}
+	}
+}

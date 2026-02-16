@@ -19,18 +19,18 @@ export default function TypographyPage() {
 							<p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
 								Heading
 							</p>
-							<p className="text-4xl font-bold">Inter</p>
+							<p className="text-4xl font-bold">Raleway</p>
 							<p className="text-sm text-muted-foreground">
-								Default · Configurable via --font-heading
+								Semibold (600) · Configurable via --font-heading
 							</p>
 						</div>
 						<div className="space-y-3">
 							<p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
 								Body
 							</p>
-							<p className="text-4xl">Inter</p>
+							<p className="text-4xl">Raleway</p>
 							<p className="text-sm text-muted-foreground">
-								Default · Configurable via --font-body
+								Regular (400) · Configurable via --font-body
 							</p>
 						</div>
 						<div className="space-y-3">
